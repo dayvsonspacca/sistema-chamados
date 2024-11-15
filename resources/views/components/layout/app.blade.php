@@ -9,10 +9,10 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <!-- Styles -->
-  @vite(['resources/css/app.css'])
+  @vite(['resources/css/app.css', 'resources/css/quill.snow.css'])
 
   <!-- Scripts -->
-  <script src="//unpkg.com/alpinejs" defer></script>
+  @vite(['resources/js/bootstrap.js', 'resources/js/flowbite.js'])
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -26,12 +26,19 @@
   <title>{{ $title ?? 'Chamados' }}</title>
 </head>
 
-<body class="bg-default antialiased h-screen dark:bg-slate-950">
+<body x-cloak x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }"  class="antialiased">
 
-  <main class="p-5 h-full flex flex-col justify-center items-center">
-    {{ $slot }}
+  <main class="flex">
+    <x-layout.aside />
+    <div class="h-screen overflow-y-scroll w-full bg-gray-100 dark:bg-slate-950 p-4">
+      {{ $slot }}
+    </div>
   </main>
 
+  <div class="flex gap-2">
+    <div id="toasts-container" class="absolute bottom-0 right-0 m-4 space-y-2"></div>
+    <x-ui.flash />
+  </div>
 </body>
 
 </html>

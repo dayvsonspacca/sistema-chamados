@@ -45,6 +45,6 @@ class LoginController
 
     $request->session()->regenerateToken();
 
-    return redirect('/home');
+    return redirect('/login');
   }
 }
