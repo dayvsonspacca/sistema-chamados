@@ -18,11 +18,8 @@ class CriarChamadosController
   public function store(CriarChamadoRequest $request)
   {
     $fields = $request->validated();
-    dd($fields);
-    Chamado::create([
 
-    ]);
-
+    Chamado::create($fields);
 
     return redirect()->route('chamados');
   }

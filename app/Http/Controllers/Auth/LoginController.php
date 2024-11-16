@@ -20,7 +20,7 @@ class LoginController
 
     if (!$fields)
     {
-      return redirect()->route('login')->withErrors($request->errors());
+      return redirect()->route('login')->with('danger', 'Campos invalidos.');
     }
 
     if (
@@ -34,7 +34,7 @@ class LoginController
       return redirect()->route('chamados');
     }
 
-    return redirect()->route('login');
+    return redirect()->route('login')->with('danger', 'Email ou senha incorretos.');
   }
 
   public function destroy(Request $request): RedirectResponse

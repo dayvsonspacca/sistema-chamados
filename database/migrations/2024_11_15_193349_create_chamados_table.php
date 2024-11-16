@@ -18,11 +18,13 @@ return new class extends Migration
             $table->text('descricao');
             $table->enum('status', ['aberto', 'em andamento', 'fechado'])->default('aberto');
             $table->enum('prioridade', ['baixa', 'média', 'alta'])->default('média');
-            $table->date('prazo')->nullable();
+            $table->date('dt_prazo')->nullable();
+            $table->date('dt_finalizacao')->nullable();
             $table->timestamps();
 
-            $table->foreignId('responsavel')->references('id')->on('users');
-            $table->index(['status', 'responsavel']);
+            // Mudando o campo para 'responsavel_id' para seguir convenção
+            $table->foreignId('responsavel_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->index(['status', 'responsavel_id']);
         });
     }
 

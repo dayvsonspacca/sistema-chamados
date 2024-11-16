@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\{
 * Login Routes
 */
 
+Route::get('/',   [LoginController::class, 'create'])->name('login');
 Route::get('/login',   [LoginController::class, 'create'])->name('login');
 Route::post('/login',  [LoginController::class, 'store']);
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');

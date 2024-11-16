@@ -4,7 +4,7 @@ namespace App\Http\Requests\Chamados;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CriarChamadoRequest extends FormRequest
+class AtenderChamadoRequest extends FormRequest
 {
   /**
    * Determine if the user is authorized to make this request.
@@ -22,11 +22,10 @@ class CriarChamadoRequest extends FormRequest
   public function rules() : array
   {
     return [
-      'titulo' => 'required|string|max:255',
+      'responsavel_id' => 'nullable',
       'prioridade' => 'required|in:baixa,média,alta',
       'dt_prazo' => 'nullable|date',
-      'responsavel_id' => 'nullable',
-      'descricao' => 'nullable',
+      'acao' => 'required|in:finalizar,iniciar',
     ];
   }
 }

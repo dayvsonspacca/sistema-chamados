@@ -9,11 +9,16 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <!-- Styles -->
-  @vite(['resources/css/app.css', 'resources/css/quill.snow.css'])
+  @vite(['resources/css/app.css'])
 
   <!-- Scripts -->
   @vite(['resources/js/bootstrap.js', 'resources/js/flowbite.js'])
   
+  <!-- Summernote -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -36,7 +41,6 @@
   </main>
 
   <div class="flex gap-2">
-    <div id="toasts-container" class="absolute bottom-0 right-0 m-4 space-y-2"></div>
     <x-ui.flash />
   </div>
 </body>

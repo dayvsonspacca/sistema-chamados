@@ -9,11 +9,11 @@
   ];
 @endphp
 
-<div id="flash-container" class="fixed bottom-0 right-0 m-4 space-y-2">
-  @foreach ($variant as $type => $_)
+<div id="flash-container" class="fixed top-0 right-0 m-4 space-y-2">
+  @foreach ($variant as $type => $class)
     @if (session()->has($type))
     <div
-    class="flex gap-2 items-center rounded-lg bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 dark:bg-slate-800 dark:text-blue-400">
+    class="flex gap-2 items-center rounded-lg px-4 py-2 text-sm font-medium {{$class}}">
     <i class="fa-solid fa-circle-info"></i>
     {{ session()->get($type) }}
     </div>

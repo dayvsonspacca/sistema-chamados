@@ -2,7 +2,7 @@
   <div>
     <div class="p-2 flex justify-center">
       <a href="#">
-        <x-ui.avatar name="{{ auth()->user()->username }}" tooltip />
+        <x-ui.avatar name="{{ auth()->user()->username }}" />
       </a>
     </div>
 
