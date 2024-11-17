@@ -1,6 +1,6 @@
-# Sistema de chamaods
+# Sistema de chamados
 
-Sistema basico de criação de chamados ou demandas, podendo vincular responsavel, nivei de prioridade, prazo e status do chamado.
+Sistema basico de criação de chamados ou demandas, podendo vincular responsavel, niveis de prioridade, prazo e status do chamado.
 
 
 
@@ -9,7 +9,7 @@ Sistema basico de criação de chamados ou demandas, podendo vincular responsave
 Clone o projeto
 
 ```bash
-  cd jp-train
+  cd sistema-chamados
 
   composer install
   pnpm install
