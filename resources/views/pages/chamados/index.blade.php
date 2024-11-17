@@ -55,10 +55,16 @@
         <td class="whitespace-nowrap px-4 py-1">{{ $chamado->dt_prazo }}</td>
         <td class="whitespace-nowrap px-4 py-1">{{ $chamado->created_at->format('d/m/Y H:i:s') }}</td>
         <td class="whitespace-nowrap px-4 py-1">
-          <x-ui.button name="submit" variant="primary" type="link"
-          href="{{ route('chamados.atender', ['id' => $chamado->id]) }}">
-          Atender <i class="fa fa-edit"></i>
-          </x-ui.button>
+          <div class="flex gap-2">
+            <x-ui.button name="submit" variant="primary" type="link" class="px-2 py-1" 
+            href="{{ route('chamados.atender', ['id' => $chamado->id]) }}">
+            Atender <i class="fa fa-check"></i>
+            </x-ui.button>
+            <x-ui.button name="submit" variant="primary" type="link"
+            href="{{ route('chamados.editar', ['id' => $chamado->id]) }}">
+            Editar <i class="fa fa-edit"></i>
+            </x-ui.button>
+          </div>
         </td>
         </tr>
       @endforeach

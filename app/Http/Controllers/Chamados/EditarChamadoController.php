@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Chamados;
 
-use App\Http\Requests\Chamados\AtenderChamadoRequest;
+use App\Http\Requests\Chamados\CriarChamadoRequest;
 use App\Models\Chamado;
 use App\Models\User;
 
-class AtenderChamadoController
+class EditarChamadoController
 {
   public function create($id)
   {
@@ -14,7 +14,7 @@ class AtenderChamadoController
 
     if ($chamado)
     {
-      return view('pages.chamados.atender', [
+      return view('pages.chamados.edit', [
         'chamado' => $chamado,
         'usuarios' => User::all(),
       ]);
@@ -23,7 +23,7 @@ class AtenderChamadoController
     return redirect()->route('chamados')->with('danger', 'Chamado não encontrado.');
   }
 
-  public function store(AtenderChamadoRequest $request, $id)
+  public function store(CriarChamadoRequest $request, $id)
   {
     $fields = $request->validated();
     $chamado = Chamado::find($id);
@@ -32,20 +32,12 @@ class AtenderChamadoController
     {
       $chamado->responsavel_id = $fields['responsavel_id'];
       $chamado->prioridade = $fields['prioridade'];
-      $chamado->dt_prazo = $fields['dt_prazo'];
+      $chamado->descricao = $fields['descricao'];
+      $chamado->titulo = $fields['titulo'];
 
-      if ($fields['acao'] == 'finalizar')
-      {
-        $chamado->status = 'fechado';
-        $chamado->dt_finalizacao = date('d/m/Y');
-      }
-      else if ($fields['acao'] == 'iniciar')
-      {
-        $chamado->status = 'em andamento';
-      }
-      
       $chamado->save();
-      return redirect()->route('chamados')->with('success', 'Chamado atendido com successo!');
+
+      return redirect()->route('chamados')->with('success', 'Chamado editado com successo!');
     }
 
     return redirect()->route('chamados')->with('danger', 'Chamado não encontrado.');

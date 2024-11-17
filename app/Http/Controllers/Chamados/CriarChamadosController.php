@@ -21,6 +21,6 @@ class CriarChamadosController
 
     Chamado::create($fields);
 
-    return redirect()->route('chamados');
+    return redirect()->route('chamados')->with('success', 'Chamado criado com successo!');
   }
 }
