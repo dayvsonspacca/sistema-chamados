@@ -26,6 +26,6 @@ Senha: 123456
 
 ## Ferramentas
 
-Banco: Sqlite
-Front-end: AlpineJS, JQuery, Flowbite (para datepicker)
-Back: Laravel e PHP
+- Banco: Sqlite
+- Front-end: AlpineJS, JQuery, Flowbite (para datepicker)
+- Back: Laravel e PHP
