@@ -21,8 +21,8 @@ Clone o projeto
 
 Usuário padrão de login:
 
-Email: spacca.dayvson@gmail.com
-Senha: 123456
+- Email: spacca.dayvson@gmail.com
+- Senha: 123456
 
 ## Ferramentas
 
